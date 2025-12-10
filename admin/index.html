@@ -12,6 +12,20 @@
 
     <!-- Netlify Identity widget (necessario per il login email/password se usi Netlify Identity/Git Gateway) -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+    // Quando Netlify Identity si inizializza
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', user => {
+        if (!user) {
+            window.netlifyIdentity.on('login', () => {
+            // Dopo il login, vai direttamente all'admin
+            window.location.href = '/admin/';
+            });
+        }
+        });
+    }
+    </script>
+
 
     <!-- Decap CMS (carica l'app) -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
