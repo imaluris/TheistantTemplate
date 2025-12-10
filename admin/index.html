@@ -1,11 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <title>Admin</title>
-  <script src="https://unpkg.com/netlify-identity-widget@1.9.1/build/netlify-identity-widget.js"></script>
-</head>
-<body>
-  <script src="https://unpkg.com/netlify-cms@2.10.192/dist/netlify-cms.js"></script>
-</body>
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Admin - Decap CMS</title>
+  </head>
+  <body>
+    <!-- Optional: punto dove Decap può montare (evita che prenda l'intera pagina) -->
+    <div id="nc-root"></div>
+
+    <!-- Netlify Identity widget (necessario per il login email/password se usi Netlify Identity/Git Gateway) -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- Decap CMS (carica l'app) -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <!-- Opzionale: script per personalizzazioni o inizializzazione custom
+         (es. forzare mount su #nc-root o registrare widget custom).
+         Non è necessario per il funzionamento base. -->
+    <script>
+      // esempio: assicurati che il widget identity sia inizializzato dopo il caricamento
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on && window.netlifyIdentity.on('init', function(user) {
+          // init callback se serve
+        });
+      }
+      // Decap monta automaticamente; non serve altro per la maggior parte dei casi.
+    </script>
+  </body>
 </html>

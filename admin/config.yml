@@ -1,27 +1,17 @@
 backend:
-  name: git-gateway   # usa Git Gateway per Netlify
-  branch: main        # branch dove salvare i contenuti
+  name: git-gateway
+  branch: main
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "static/uploads"
+public_folder: "/uploads"
 
 collections:
-  - name: "portfolio"
-    label: "Portfolio"
-    folder: "content/portfolio"
+  - name: "blog"
+    label: "Articoli"
+    folder: "content/blog"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Descrizione", name: "description", widget: "text" }
-      - { label: "Immagini", name: "images", widget: "list", allow_add: true, field:
-          { label: "Immagine", name: "image", widget: "image", media_library: { allow_multiple: true } } }
-
-  - name: "pages"
-    label: "Pagine"
-    folder: "content/pages"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
       - { label: "Contenuto", name: "body", widget: "markdown" }
