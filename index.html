@@ -130,8 +130,8 @@
       // Contact
       document.getElementById("contact-email").textContent = data.contact.email;
       document.getElementById("contact-email").href = "mailto:" + data.contact.email;
-      document.getElementById("contact-instagram").href = data.contact.socialLinks[0] || "#";
-      document.getElementById("contact-facebook").href = data.contact.socialLinks[1] || "#";
+      document.getElementById("contact-instagram").href = data.contact.social[0] || "#";
+      document.getElementById("contact-facebook").href = data.contact.social[1] || "#";
 
     })
     .catch(err => console.error(err));
