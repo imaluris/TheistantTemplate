@@ -92,7 +92,7 @@
         }
         contact {
           email
-          socialLinks
+          social
         }
       }
     `;
@@ -107,6 +107,8 @@
     })
     .then(res => res.json())
     .then(res => {
+        console.log(res); // <--- aggiungi questo per vedere la risposta reale
+
       const data = res.data;
 
       // Hero
